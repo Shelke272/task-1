@@ -1,3 +1,4 @@
+<h3>Input :</h3>
 from flask import Flask, render_template, request, redirect, url_for, session
 from models import db, Product
 
@@ -36,9 +37,28 @@ def add_to_cart(product_id):
 def remove_from_cart(product_id):
     cart = session.get('cart', {})
     if product_id in cart:
+
+    
         del cart[product_id]
     session['cart'] = cart
     return redirect(url_for('cart'))
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+<h3>Output :</h3>
+
+Welcome to the E-Commerce Store
+
+Product 1
+$19.99 [View Details] [Add to Cart]
+
+Product 2
+$29.99 [View Details] [Add to Cart]
+
+Product 3
+$15.00 [View Details] [Add to Cart]
+
+[View Cart]
+
